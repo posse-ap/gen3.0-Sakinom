@@ -1,0 +1,62 @@
+.headerInner{
+  align-items: center;
+  background-color: #fff;
+  display: flex;
+  padding: 15px 24px;
+}
+
+.header-logo{
+  /* logo */
+width: 148px;
+height: 27.53px;
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+
+.globalNav{
+  display: inline;
+  /* Frame 5 */
+width: 308px;
+height: 50px;
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+}
+
+
+.possenav, .quiznav{
+  position: absolute;
+  top: 0%;
+  bottom: 12%;
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 160%;
+  display: inline;
+  
+  /* or 22px */
+  letter-spacing: 0.1em;
+  
+  /* gray-dark */
+  color: #666666;
+}
+
+.possenav{
+  left: 0%;
+  right: 48.12%;
+}
+
+.quiznav{
+  left: 71.88%;
+  right: 0%;
+}
+
+
+
+.footerInner{
+  text-align: center;
+}
