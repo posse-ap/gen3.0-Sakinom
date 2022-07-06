@@ -1,0 +1,253 @@
+::before, ::after {
+  border-style: solid;
+  border-width: 0;
+  box-sizing: border-box;
+}
+
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*icon fonts*/
+@font-face {
+  font-display: inline-block;
+  font-family: "posse-icon";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../assets-ph1-website-main/fonts/posse-icon.ttf") format("truetype"), url("../assets-ph1-website-main/fonts/posse-icon.woff") format("woff"), url("../assets-ph1-website-main/fonts/posse-icon.svg") format("svg");
+}
+
+i{
+  speak: never;
+  -ms-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "posse-icon" !important;
+  font-style: normal;
+  font-variant: normal;
+  font-variant-ligatures: discretionary-ligatures;
+  font-weight: normal;
+  letter-spacing: 0;
+  line-height: 1;
+  text-transform: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+.l-header{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+}
+
+.p-header{
+  align-items: center;
+  background-color: white;
+  display: flex;
+  padding: 15px 24px;
+}
+
+.p-header_logo{
+  width: 148px;
+}
+
+.p-header_nav{
+  margin-left: auto;
+}
+
+.p-header_nav_list{
+  display: flex;
+  gap: 32px;
+}
+
+.p-header_nav_item_link{
+  color: #666;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+}
+
+.p-sns{
+  display: flex;
+  gap: 16px;
+}
+
+.p-header_sns{
+  margin-left: 32px;
+}
+
+.p-sns_item_link{
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  border: solid 1px #eee;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  color: #adadad;
+  font-size: 24px;
+}
+
+.l-container{
+  padding: 0 24px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1032px;
+}
+
+/*公式LINEセクション*/
+.p-line{
+  margin-top: 144px;
+}
+
+.p-line_body{
+  background: url(../assets-ph1-website-main/img/bg-line.jpg) center center/cover;
+  padding: 68px;
+  border-radius: 56px;
+  position: relative;
+  overflow: hidden;
+}
+
+.p-line_body::before{
+  background-color: rgba(0, 113, 188, 0.9);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+}
+
+.p-line_body_inner{
+  position: relative;
+}
+
+.p-heading.-light{
+  color: #fff;
+}
+
+.p-line_title{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.p-line_title .u-icon_line {
+  font-size: 40px;
+}
+
+.p-line_content{
+  color: #eee;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  line-height: 1.8;
+  margin-top: 16px;
+}
+
+.p-line_footer{
+  text-align: center;
+  margin-top: 16px;
+}
+
+.p-line_botton{
+  background-color: #fff;
+  border-radius: 50px;
+  color: #333;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  line-height: 1.8;
+  max-width: 320px;
+  padding: 12px;
+  position: relative;
+  width: 100%;
+}
+
+.p-line_button, .u-icon_link {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.p-heading{
+  font-size: 36px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/*ここからフッター*/
+.l-footer{
+  border-top: solid 1px #eee;
+}
+
+.p-footer{
+  margin-top: 80px;
+  text-align: center;
+}
+
+.l-footer_inner{
+  padding: 56px 24px 48px;
+}
+
+.p-footer_logo{
+  display: block;
+}
+
+.p-footer_siteinfo_link{
+  margin-top: 24px;
+  display: inline-block;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.8;
+  text-decoration: none;
+}
+
+.p-footer_sns_list{
+  margin-top: 32px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+/*コピーライト記載*/
+.p-footer_copyright{
+  padding: 38px 24px 33px;
+  border-top: solid 1px #eee;
+  font-family: "Plus Jakarta Sans", "Noto Sans JP", sans-serif;
+  font-size: 10px;
+  color: #666;
+  line-height: 1.5;
+}
+
+/*アイコン指定*/
+.u-icon_link::before{
+  content: url("../assets-ph1-website-main/img/icon/icon-link-dark.svg");
+}
+
+.u-icon_line::before{
+  background: radial-gradient(#fff 60%, transparent 60%);
+  color: #00c300;
+  content: url("../assets-ph1-website-main/img/icon/icon-line.svg");
+}
+
+.u-icon_instagram::before {
+  content: url("../assets-ph1-website-main/img/icon/icon-instagram.svg");
+}
+
+.u-icon_twitter::before {
+  content: url("../assets-ph1-website-main/img/icon/icon-twitter.svg");
+}
