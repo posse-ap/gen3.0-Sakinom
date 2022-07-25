@@ -34,6 +34,14 @@ img{
   max-width: 100%;
 }
 
+button{
+  cursor: pointer;
+}
+
+button:disabled{
+  cursor: default;
+}
+
 /*icon fonts*/
 @font-face {
   font-display: inline-block;
@@ -412,6 +420,163 @@ a{
   letter-spacing: 0.1em;
 }
 
+/*クイズページ*/
+
+/*タイトル部分*/
+.p-quiz-hero{
+  background: url(../assets-ph1-website-main/img/quiz/bg-hero.jpg) center center/cover;
+}
+
+.p-hero{
+  padding: 110px 0 76px;
+}
+
+.p-hero_title{
+  color: #fff;
+  font-weight: bold;
+}
+
+.p-hero_title_label{
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.p-hero_title_inline{
+  display: block;
+  font-size: 60px;
+  line-height: 1.5;
+  margin-top: 12px;
+}
+
+.p-quiz-container{
+  margin-top: 120px;
+}
+
+.p-quiz-box{
+  margin-top: 120px;
+}
+
+.p-quiz-box_question_title_text{
+  display: block;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 1.5;
+  margin-top: 24px;
+}
+
+.p-quiz-box_label{
+  background-color: #0071bc;
+  border-radius: 8px;
+  color: #fff;
+  display: inline-block;
+  font-family: "Plus Jakarta Sans", "Noto Sans JP", sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 1.5;
+  padding: 8px 16px;
+}
+
+.p-quiz-box_question_image{
+  margin: 64px auto 0;
+  max-width: 718px;
+}
+
+.p-quiz-box_answer{
+  margin-top: 64px;
+}
+
+.p-quiz-box_label--accent{
+  background-color: #e34e70;
+}
+
+.p-quiz-box_answer_list{
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 16px;
+}
+
+.p-quiz-box_answer_button{
+  align-items: center;
+  border: solid 5px #eee;
+  background-color: #fff;
+  border-radius: 8px;
+  display: flex;
+  font-size:18px;
+  font-weight: bold;
+  line-height: 1.8;
+  padding: 19px;
+  text-align: left;
+  width: 100%;
+}
+
+.p-quiz-box_answer_button .u-icon_arrow{
+  font-size: 16px;
+  margin-left: auto;
+}
+
+.p-quiz-box_answer_button:disabled .u-icon_arrow{
+  display: none;
+}
+
+.p-quiz-box_answer_button.is-selected .u-icon_arrow{
+  display: none;
+}
+
+.p-quiz-box_answer_correct{
+  background-color: #fff2f5;
+  border-radius: 8px;
+  display:none;
+  margin-top: 16px;
+  padding: 24px 40px;
+}
+
+.p-quiz-box_answer_correct.is-correct{
+  display: block;
+}
+
+.p-quiz-box_answer_correct.is-incorrect{
+  background-color: #eff2f5;
+  display: block;
+}
+
+.p-quiz-box_answer_correct_title{
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+}
+
+.p-quiz-box_answer_correct_content{
+  align-items: baseline;
+  display: flex;
+  font-size: 18px;
+  font-weight: bold;
+  gap: 18px;
+  line-height: 1.8;
+  margin-top: 16px;
+}
+
+.p-quiz-box_answer_correct_content_label{
+  font-family: "Plus Jakarta Sans", "Noto Sans JP", sans-serif;
+  font-size: 24px;
+}
+
+.p-quiz-box_note{
+  align-items: center;
+  background-color: #f6f6f6;
+  border-radius: 8px;
+  display: block;
+  display: flex;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: bold;
+  gap: 16px;
+  line-height: 1.8;
+  margin-top: 16px;
+  padding: 24px;
+}
+
 /*アイコン指定*/
 .p-line_button .u-icon_link{
   content: url("../assets-ph1-website-main/img/icon/icon-link-dark.svg");
@@ -435,4 +600,12 @@ a{
 
 .u-icon_twitter::before {
   content: url("../assets-ph1-website-main/img/icon/icon-twitter.svg");
+}
+
+.u-icon_arrow{
+  content: url('../assets-ph1-website-main/img/icon/icon-arrow.svg');
+}
+  
+.u-icon_note{
+  content: url('../assets-ph1-website-main/img/icon/icon-note.svg');
 }
