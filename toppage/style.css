@@ -36,10 +36,13 @@ img{
 
 button{
   cursor: pointer;
+  background: transparent;
+  font: inherit;
 }
 
 button:disabled{
   cursor: default;
+  color: black;
 }
 
 /*icon fonts*/
@@ -143,7 +146,6 @@ a{
 }
 
 /*メインビジュアル*/
-.p-top-hero{}
 
 .p-top-hero_inner{
   display: flex;
@@ -221,8 +223,6 @@ a{
 .p-top-container{
   margin-top: 96px;
 }
-
-.l-section{}
 
 .p-heading_caption{
   color: #0071bc;
@@ -499,7 +499,6 @@ a{
 .p-quiz-box_answer_button{
   align-items: center;
   border: solid 5px #eee;
-  background-color: #fff;
   border-radius: 8px;
   display: flex;
   font-size:18px;
@@ -521,6 +520,11 @@ a{
 
 .p-quiz-box_answer_button.is-selected .u-icon_arrow{
   display: none;
+}
+
+.p-quiz-box_answer_button.is-selected{
+  background-color: #eff2f5;
+  border-color: #0071bc;
 }
 
 .p-quiz-box_answer_correct{
@@ -545,6 +549,14 @@ a{
   font-weight: bold;
   letter-spacing: 0.05em;
   line-height: 1.5;
+}
+
+.is-correct .p-quiz-box_answer_correct_title{
+  color: #e34e70;
+}
+
+.is-incorrect .p-quiz-box_answer_correct_title{
+  color: #0071bc;
 }
 
 .p-quiz-box_answer_correct_content{

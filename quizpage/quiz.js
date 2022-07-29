@@ -49,7 +49,7 @@
 
   //各問題の中での処理
   allQuiz.forEach(quiz => {
-    const quiz = document.querySelectorAll('.js-answer');
+    const answers = quiz.querySelectorAll('.js-answer');
     const selectedQuiz = Number(quiz.getAttribute('data-quiz'));
     const answerBox = quiz.querySelector('.js-answerBox');
     const answerTitle = quiz.querySelector('.js-answerTitle');
