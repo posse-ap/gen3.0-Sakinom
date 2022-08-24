@@ -16,6 +16,21 @@
 <body>
   <header class="l-header p-header">
     <div class="p-header_logo"><img src="../assets-ph1-website-main/img/logo.svg" alt="POSSE"></div>
+    <div class="hamburger-menu">
+      <input type="checkbox" id="menu-btn-check">
+      <label for="menu-btn-check" class="menu-btn"><span></span></label>
+      <div class="menu-content">
+        <ul>
+          <li>
+            <a href="../toppage/index.html" class="menu-item_1">POSSEとは</a>
+          </li>
+          <li>
+            <a href="../quizpage/index.html" class="menu-item_2">クイズ</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
     <nav class="p-header_nav">
       <ul class="p-header_nav_list">
         <li class="p-header_nav_item">
@@ -69,12 +84,13 @@
     </div>
     
     <footer class="l-footer p-footer">
-      <div class="p-fixedLine">
-        <a href="http://line.me/R/ti/p/@651htnqp?from=page" target="_blank" rel="noopener noreferrer" class="p-fixedLine_link">
+      <div class="p-fixedLine" id="js-fixedLine">
+        <a href="http://line.me/R/ti/p/@651htnqp?from=page" target="_blank" rel="noopener noreferrer" class="p-fixedLine_link" id="js-lineLink">
           <i class="u-icon_line"></i>
-          <p class="p-fixedLine_line_text">POSSE公式LINEで<br>最新情報をGET！</p>
+          <p class="p-fixedLine_line_text" id="js-iconLine">POSSE公式LINEで<br>最新情報をGET！</p>
           <i class="u-icon_link"></i>
         </a>
+        <div class="p-fixedIcon" id="js-fixedIcon"></div>
       </div>
       <div class="l-footer_inner">
         <div class="p-footer_siteinfo">
@@ -82,6 +98,7 @@
             <img src="../assets-ph1-website-main/img/logo.svg" alt="POSSE">
           </span>
           <a href="http://posse-ap.com/" target="_blank" rel="noopener noreferrer" class="p-footer_siteinfo_link">POSSE公式サイト</a>
+          <i class="p-footer_icon_link"></i>
         </div>
         <div class="p-footer_sns">
           <ul class="p-sns_list p-footer_sns_list">
@@ -104,4 +121,5 @@
     </footer>
 </body>
 <script src="./quiz.js"></script>
+<script src="../toppage/toppage.js"></script>
 </html>
