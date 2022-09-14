@@ -95,7 +95,7 @@
    * @param questionNumber { number }
    * @returns {string}
    */
-   const createQuizHtml = (quizItem, questionNumber) => {
+   const createQuizHtml = function(quizItem, questionNumber){
     const answersHtml = quizItem.answers.map((answer, answerIndex) => 
       `<li class="p-quiz-box_answer_item">
       <button class="p-quiz-box_answer_button js-answer" data-answer="${answerIndex}">
@@ -162,7 +162,7 @@
    * @description 生成したクイズのHTMLを #js-quizContainer に挿入
    */
   quizContainer.innerHTML = quizArray.map((quizItem, index) => {
-    return (createQuizHtml(quizItem, index))
+    return createQuizHtml(quizItem, index)
   }).join('')
 
   /**
