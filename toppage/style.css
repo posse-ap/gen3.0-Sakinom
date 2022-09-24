@@ -55,7 +55,6 @@ button:disabled{
 }
 
 i{
-  speak: never;
   -ms-font-feature-settings: "liga" 1;
   font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
