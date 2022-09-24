@@ -143,7 +143,7 @@
    * @returns {Array}
    */
   const shuffle = arrays => {
-    const array = arrays.slice();
+    const array = arrays.slice(); /*配列を部分的に取得*/
     for (let i = array.length-1; i >= 0; i--){
       const randomIndex = Math.floor(Math.random() * (i + 1));
       [array[i], array[randomIndex]] = [array[randomIndex], array[i]];
@@ -223,6 +223,9 @@
 
         // 回答欄にテキストやclass名を付与
         answerText.innerText = quizArray[selectedQuiz].answers[correctNumber];
+
+        // console.log(quizArray[selectedQuiz].answers[correctNumber]);
+
         setTitle(answerTitle, isCorrect);
         setClassName(answerBox, isCorrect);
       })
