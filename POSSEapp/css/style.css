@@ -389,7 +389,7 @@
   [type="checkbox"]:checked+.checkbox_label {
     background: #E7F5FF;
   }
-  
+
   .twitter_checkbox [type="checkbox"]:checked+.checkbox_label {
     background: #fff;
   }
@@ -398,7 +398,8 @@
     display: block;
   }
 
-  input[type="text"], textarea {
+  input[type="text"],
+  textarea {
     width: 100%;
     box-sizing: border-box;
     border: none;
@@ -625,10 +626,114 @@
     color: #333;
   }
 
-  /* @media(max-width: 414px){ */
-  /* .pie-charts_img{
-        position: relative;
-        width:100%;
-        max-height:50vh;
-    } */
-  /* } */
+  /**********************************************
+  カレンダーモーダル作成
+  ***********************************************/
+  .modal_calendar {
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal_return {
+    position: absolute;
+    top: 3%;
+    left: 3%;
+    width: 35px;
+    height: 35px;
+    background: #F5F5F8;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .modal_return::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border: 2px solid #666;
+    border-right: 0;
+    border-bottom: 0;
+    transform: rotate(-45deg);
+    transform-origin: top left;
+    position: absolute;
+    top: 50%;
+    left: 24%;
+    box-sizing: border-box;
+  }
+
+  .modal_return::after {
+    content: '';
+    position: absolute;
+    top: 47%;
+    left: 25%;
+    width: 50%;
+    height: 2px;
+    border-radius: 5px;
+    background-color: #666;
+  }
+
+
+  /*********** カレンダー機能 ************/
+
+  table {
+    border-collapse: collapse;
+    margin: auto;
+  }
+
+  th,
+  td {
+    padding: 8px;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  td {
+    color: #333;
+    font-size: 20px;
+    /* line-height: 0.2em; */
+  }
+
+  tfoot {
+    font-weight: bold;
+  }
+
+  td.disabled {
+    opacity: 0;
+  }
+
+  td.today {
+    font-weight: bold;
+    color: white;
+    width: 30px;
+    height: 30px;
+    background: 	#0F71BE;
+    border-radius: 50%;
+  }
+
+  #prev,
+  #today,
+  #next {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  #prev,
+  #next {
+    position: relative;
+    /* align-items: center;
+    display: flex;
+    justify-content: center; */
+  }
+
+  th > .right_icon, th > .left_icon {
+    position: absolute;
+    top: 20%;
+  }
+
+  .days {
+    color: 	#95B9D0;
+  }
+
+  #title {
+    padding-bottom: 30px;
+  }

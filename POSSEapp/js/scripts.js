@@ -36,6 +36,21 @@
     modalLoading.style.display = 'block';
     setTimeout(changeModal, 3000);
   })
+
+  const dateInput = document.getElementById('date');
+  const modalCalendar = document.querySelector('.modal_calendar');
+  const modalReturn = document.querySelector('.modal_return');
+
+  dateInput.addEventListener('click', () => {
+    modalMain.style.display = 'none';
+    modalCalendar.style.display = 'flex';
+  })
+
+  modalReturn.addEventListener('click', () => {
+    modalCalendar.style.display = 'none';
+    modalMain.style.display = 'block';
+  })
+
 }
 
 /*******************************************************

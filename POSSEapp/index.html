@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" defer></script>
+  <script src="js/calendar.js" defer></script>
   <script src="js/scripts.js" defer></script>
   <title>POSSE</title>
 </head>
@@ -165,6 +166,38 @@
               <p class="error_text">記録・投稿<br>完了しました</p>
             </div>
           </div>
+        </div>
+        <div class="modal_content modal_calendar">
+          <div class="modal_return"></div>
+          <table>
+            <thead>
+              <tr class="calendar_top">
+                <th id="prev">
+                  <i class="left_icon"></i>
+                </th>
+                <th id="title" colspan="5">2020/05</th>
+                <th id="next">
+                  <i class="right_icon"></i>
+                </th>
+              </tr>
+              <tr class="days">
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+              </tr>
+            </tr>
+          </thead>
+          <tbody></tbody>
+            <!-- <tfoot>
+              <tr>
+                <td id="today" colspan="7">Today</td>
+              </tr>
+            </tfoot> -->
+          </table>
         </div>
       </div>
     </div>
