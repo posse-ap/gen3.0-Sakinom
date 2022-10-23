@@ -1,0 +1,634 @@
+  * {
+    font-family: 'Mulish', sans-serif;
+  }
+
+  body {
+    background-color: #f2f2f2;
+    /* height: 100vh; */
+  }
+
+  html,
+  body {
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  /* label {
+    display: block; */
+  /* text-align: left; */
+  /* } */
+
+  /* ヘッダー開始 */
+
+  .l-header {}
+
+  .fixed_header {
+    width: 100%;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    height: 64px;
+  }
+
+  .header_title {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-left: 32px;
+  }
+
+  .header_logo {}
+
+  .header_subtitle {
+    font-size: 14px;
+    color: #98BAD1;
+  }
+
+  .header_btn_container {
+    position: absolute;
+    right: 5%;
+    /* max-width: 150px;
+      height: 50px;
+      background-color: aqua;
+      border-radius: 50px; */
+  }
+
+  .header_btn {
+    padding: 12px 50px;
+    background: linear-gradient(to right, #1472BC, #3ECFFF);
+    color: #fff;
+    border-radius: 20px;
+    border: none;
+  }
+
+  .header_btn_content {
+    margin: 0;
+  }
+
+  /* ヘッダー終了 */
+
+
+  /* メインセクション開始 */
+
+  .l-main {
+    /* margin-top: 65px; */
+    margin: 64px 64px 0px 64px;
+    box-sizing: border-box;
+    /* margin: 64px; */
+    /* width: 1089px; */
+  }
+
+  .statistics {
+    display: flex;
+    /* grid-template-columns: repeat(2, 1fr); */
+  }
+
+  .datasets {
+    margin: 20px;
+    width: 50%;
+  }
+
+  .datasets_value {
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .datasets_value_container {
+    width: calc((100%-40px)/3);
+    /* max-height: 150px; */
+    justify-content: center;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    /* padding: 10px 0px; */
+  }
+
+  .datasets_value_list {
+    text-align: center;
+  }
+
+  .datasets_value_title {
+    color: #1472BC;
+    font-weight: bold;
+    margin: 15px;
+  }
+
+  .datasets_value_num {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 0px 20px;
+    font-family: none;
+  }
+
+  .datasets_value_unit {
+    font-size: 20px;
+    color: #98BAD1;
+    margin: 15px;
+  }
+
+  /* 棒グラフ突入 */
+
+  .datasets_bar_container {
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px 10px 0px 10px;
+  }
+
+  #datasets_bar {
+    max-width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+
+  /* 円グラフ突入 */
+
+  .pie-charts {
+    display: flex;
+    /* gap: 20px; */
+    /* max-width: 640px; */
+    width: 50%;
+    margin: 20px 20px 20px 0px;
+    /* grid-template-columns: repeat(2, 1fr); */
+  }
+
+  .pie-languages {
+    margin-right: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 50%
+  }
+
+  .pie-charts_title {}
+
+  .pie-charts_img {
+    position: relative;
+    /* min-height: 300px */
+    width: 100%;
+  }
+
+  .l-main,
+  .statistics,
+  .pie-charts,
+  .pie-languages,
+  .pie-contents {
+    /* height: 100%; */
+    box-sizing: border-box;
+  }
+
+  .pie-charts_img {
+    height: 80%;
+  }
+
+  .pie-contents {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 50%;
+  }
+
+  /* メインセクション終了 */
+
+
+  /* フッター開始 */
+
+  .l-footer {
+    background-color: #f2f2f2;
+    padding: 0px 64px;
+  }
+
+  .period {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .left_icon {
+    border-bottom: solid 3px #1472BC;
+    border-left: solid 3px #1472BC;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    transform: rotate(45deg);
+  }
+
+  .period_content {
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: "M PLUS Rounded 1c";
+    letter-spacing: .1em;
+  }
+
+  .right_icon {
+    border-bottom: solid 3px #98BAD1;
+    border-left: solid 3px #98BAD1;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    transform: rotate(225deg);
+  }
+
+  /* フッター終了 */
+
+  /**
+    モーダルの作成
+    **/
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .button {
+    cursor: pointer;
+  }
+
+  .modal:before {
+    content: "";
+    display: block;
+    background-color: rgba(0, 0, 0, .3);
+    position: absolute;
+    inset: 0;
+  }
+
+  .modal_contents {
+    justify-content: center;
+    display: flex;
+    height: 100%;
+    align-items: center;
+  }
+
+  .modal_content {
+    position: absolute;
+    border-radius: 30px;
+    background-color: #fff;
+    padding: 56px;
+    max-width: 900px;
+    box-sizing: border-box;
+    margin: 0 24px;
+    width: 100%;
+    min-height: 80%;
+  }
+
+
+  /*モーダルを閉じるボタンを作成*/
+  .modal_close {
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    width: 35px;
+    height: 35px;
+    background: #F5F5F8;
+    border-radius: 50%;
+    /* cursor: pointer; */
+  }
+
+  .modal_close::before,
+  .modal_close::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    /* 棒の幅（太さ） */
+    height: 18px;
+    /* 棒の高さ */
+    background: #666;
+    /* バツ印の色 */
+    border-radius: 2px;
+  }
+
+  .modal_close::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  .modal_close::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  /*モーダルの中身*/
+
+  .inputs {
+    display: flex;
+    gap: 40px;
+  }
+
+  .input_choices,
+  .input_writings {
+    width: 50%;
+  }
+
+  .date,
+  .hours {
+    margin-top: 0;
+  }
+
+  .checkbox_container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .checkbox_box {
+    margin: 5px 0;
+    line-height: 1.2em;
+  }
+
+  [type="checkbox"] {
+    display: none;
+  }
+
+  .default_checkbox {
+    left: 16px;
+    width: 5px;
+    position: absolute;
+    height: 9px;
+    transform: rotate(40deg);
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
+    top: 9px;
+    border-radius: 2px;
+  }
+
+  .checkbox_label {
+    background-color: #F5F5F8;
+    padding: 5px 15px 5px 40px;
+    border-radius: 15px;
+    position: relative;
+    white-space: nowrap
+  }
+
+  .checkbox_label::before {
+    content: "";
+    display: block;
+    position: absolute;
+    /* top: 0; */
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ccc;
+  }
+
+  [type="checkbox"]:checked+.checkbox_label::before {
+    background: #0F71BD;
+  }
+
+  [type="checkbox"]:checked+.checkbox_label {
+    background: #E7F5FF;
+  }
+  
+  .twitter_checkbox [type="checkbox"]:checked+.checkbox_label {
+    background: #fff;
+  }
+
+  input[type="text"]+label {
+    display: block;
+  }
+
+  input[type="text"], textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    background: #F5F5F8;
+    height: 45px;
+    border-radius: 7px;
+  }
+
+  textarea {
+    height: fit-content;
+  }
+
+  .input[type="text"] .twitter_checkbox {
+    height: 100%;
+  }
+
+  .twitter_checkbox {
+    margin-top: 20px;
+  }
+
+  .twitter_checkbox .checkbox_label {
+    background: none;
+    white-space: normal;
+  }
+
+  .twitter_checkbox .checkbox_label::before {
+    height: 30px;
+    width: 30px;
+    left: 0;
+    top: 0;
+  }
+
+  .twitter_checkbox .default_checkbox {
+    left: 10px;
+    width: 7px;
+    height: 12px;
+    border-bottom: 3px solid #fff;
+    border-right: 3px solid #fff;
+    top: 5px;
+  }
+
+  .modal_content .header_btn_container {
+    display: flex;
+    justify-content: center;
+    position: initial;
+    margin-top: 30px;
+  }
+
+  .modal_content .header_btn {
+    width: 60%;
+    font-size: 20px;
+    border-radius: 30px;
+    margin-top: 5px;
+  }
+
+
+  .modal_loading,
+  .modal_complete {
+    display: none;
+  }
+
+  /*ローディングアニメーションの作成*/
+
+  .loader {
+    font-size: 10px;
+    margin: 50px auto;
+    text-indent: -9999em;
+    width: 11em;
+    height: 11em;
+    border-radius: 50%;
+    background: linear-gradient(to right, #0F71BD 10%, rgba(255, 255, 255, 0) 42%);
+    position: relative;
+    animation: load3 1.4s infinite linear;
+    transform: translateZ(0);
+    top: 100px;
+  }
+
+  .loader:before {
+    width: 50%;
+    height: 50%;
+    background: #0F71BD;
+    border-radius: 100% 0 0 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+  }
+
+  .loader:after {
+    background: #fff;
+    width: 75%;
+    height: 75%;
+    border-radius: 50%;
+    content: '';
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  @-webkit-keyframes load3 {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes load3 {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+
+  .complete_container {
+    text-align: center;
+    position: relative;
+    top: 100px;
+  }
+
+  .complete_visual {
+    justify-content: center;
+    display: inline-block;
+  }
+
+  .complete {
+    color: #BEE260;
+    font-size: 20px;
+  }
+
+  .complete_icon_container {
+    justify-content: center;
+    display: flex;
+  }
+
+  .complete_icon {
+    height: 80px;
+    width: 80px;
+    border-radius: 50px;
+    background-color: #BEE260;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .complete_icon .default_checkbox {
+    height: 30px;
+    width: 18px;
+    border-bottom: 4px solid #fff;
+    border-right: 4px solid #fff;
+    left: 30px;
+    top: 19px;
+  }
+
+  .complete_check {
+    color: #fff;
+    font-size: 60px;
+  }
+
+  .complete_text {
+    font-family: "M PLUS Rounded 1c";
+    letter-spacing: .1em;
+    line-height: 2em;
+    color: #333;
+  }
+
+
+  /*******************************************************
+      エラーページの作成
+*******************************************************/
+
+  .error_container {
+    text-align: center;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+
+  .error_visual {
+    justify-content: center;
+    display: inline-block;
+  }
+
+  .error_error {
+    color: #F4BD67;
+    font-size: 20px;
+  }
+
+  .error_icon {
+    height: 80px;
+    width: 80px;
+    border-radius: 50px;
+    background-color: #F4BD67;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .error_exclamation {
+    color: #fff;
+    font-size: 60px;
+  }
+
+  .error_content {}
+
+  .error_text {
+    font-family: "M PLUS Rounded 1c";
+    letter-spacing: .1em;
+    line-height: 2em;
+    color: #333;
+  }
+
+  /* @media(max-width: 414px){ */
+  /* .pie-charts_img{
+        position: relative;
+        width:100%;
+        max-height:50vh;
+    } */
+  /* } */
