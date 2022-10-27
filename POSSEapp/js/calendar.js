@@ -2,7 +2,7 @@
 
 console.clear();
 
-{
+{  
   const today = new Date();
   let year = today.getFullYear();
   let month = today.getMonth(); //5月
@@ -69,7 +69,7 @@ console.clear();
 
   function clearCalendar() {
     const tbody = document.querySelector('tbody');
-  
+
     while (tbody.firstChild) {
       tbody.removeChild(tbody.firstChild);
     }
@@ -79,7 +79,7 @@ console.clear();
   function renderTitle() {
     const title = `${year}年${String(month + 1).padStart(2, '0')}月`; //padStartは文字列についてしか使えないからString使う
     document.getElementById('title').textContent = title;
-  }  
+  }
 
 
   function renderWeeks() {
@@ -90,24 +90,38 @@ console.clear();
     ];
     const weeks = [];
     const weeksCount = dates.length / 7;
-  
+
     for (let i = 0; i < weeksCount; i++) {
       weeks.push(dates.splice(0, 7));
     }
-  
+
     weeks.forEach(week => {
       const tr = document.createElement('tr');
       week.forEach(date => {
         const td = document.createElement('td');
-  
+
         td.textContent = date.date;
         if (date.isToday) {
           td.classList.add('today');
         }
-        if(date.isDisabled) {
+        if (date.isDisabled) {
           td.classList.add('disabled')
         }
         tr.appendChild(td);
+
+          td.addEventListener('click', () => {
+            
+            const yearMonth = document.getElementById('title');
+            const selectedDate = yearMonth.innerHTML+td.innerHTML+'日';
+            console.log(selectedDate)
+            const inputDate = document.getElementById('date');
+            inputDate.value = selectedDate;
+            const modalCalendar = document.querySelector('.modal_calendar');
+            const modalMain = document.querySelector('.modal_main');
+            modalCalendar.style.display = 'none';
+            modalMain.style.display = 'block';
+
+        })
       });
       document.querySelector('tbody').appendChild(tr);
     })
@@ -134,7 +148,7 @@ console.clear();
 
   document.getElementById('next').addEventListener('click', () => {
     month++;
-    if(month > 11) {
+    if (month > 11) {
       year++;
       month = 0;
     }
@@ -152,4 +166,43 @@ console.clear();
 
 
   createCalendar();
+
+  // dates.forEach(date => {
+  //   date.addEventListener('click', () => {
+  //     console.log(date)
+  //   })
+  // })
+
+  /***********************************************
+      日付を取得
+ ***********************************************/
+{
+  // const mytable = document.getElementById("tbl");
+  // for (var i=0; i < mytable.rows.length; i++) {
+  //   for (var j=0; j < mytable.rows[i].cells.length; j++) {
+  //     console.log(  "(" + i + "," + j + ") : " + mytable.rows[i].cells[j].innerHTML  );
+  //   }}
+
+  //   for (var i=0; i < mytable.rows.length; i++) {
+  //     for (var j=0; j < mytable.rows[i].cells.length; j++) {
+  //       mytable.rows[i].cells[j].id = i + "-" + j;
+  //       mytable.rows[i].cells[j].onclick = clicked;
+  //     }
+  //   }
+     
+  //   function clicked(e) {
+  //     var txt = document.getElementById("result");
+  //     txt.textContent = e.target.id + "がクリックされました。値は：" + e.target.innerHTML;
+  //   }
+    
+  // const dates = document.getElementsByTagName("td").innerHTML;
+
+  // console.log(dates)
+
+  // dates.forEach(date => {
+  //   date.addEventListener('click', () => {
+  //     console.log(date);
+  //   })
+  // })
+}
 }

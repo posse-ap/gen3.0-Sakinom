@@ -34,7 +34,10 @@
     // console.log('hello');
     modalMain.style.display = 'none';
     modalLoading.style.display = 'block';
-    setTimeout(changeModal, 3000);
+    if(document.getElementById('share').checked) {
+      openTwitter();
+    }
+    setTimeout(changeModal, 5000);
   })
 
   const dateInput = document.getElementById('date');
@@ -50,6 +53,13 @@
     modalCalendar.style.display = 'none';
     modalMain.style.display = 'block';
   })
+
+    //openTwitter(投稿文、シェアするURL、ハッシュタグ、提供元アカウント)
+    function openTwitter() {
+      const comment = document.getElementById('comment').value;
+      var turl = "https://twitter.com/intent/tweet?text=" + comment;
+      window.open(turl, '_blank');
+    }
 
 }
 
@@ -132,6 +142,9 @@
         if (!meta.hidden) {
           meta.data.forEach(function (element, 要素) {
             // ステップ１　数値を文字列に変換
+            // dataSum += dataset.data[要素];
+            // var ratio = dataset.data[要素]/dataSum*100;
+            // var dataString = ratio.toString();
             var dataString = dataset.data[要素].toString();
             // ステップ２　文字列の書体
             ctx.fillStyle = "#fff";            // 色　'rgb(0, 0, 0)', 'rgba(192, 80, 77, 0.7)'
@@ -144,10 +157,8 @@
             ctx.textBaseline = 'middle';        // 文字高　middle, top, bottom
             // ステップ４　文字列のグラフでの位置
             var padding = 5;                   // 点と文字列の距離
-            var position = element.tooltipPosition();//文字列の表示　 fillText(文字列, Ｘ位置, Ｙ位置)
-            if (dataString != 0) {
-              ctx.fillText(dataString + '%', position.x, position.y - (fontSize / 2) - padding);
-            }
+            var position = element.tooltipPosition(); //文字列の表示　 fillText(文字列, Ｘ位置, Ｙ位置)
+            ctx.fillText(dataString + '%', position.x, position.y - (fontSize / 2) - padding);
           });
         }
       });
@@ -162,7 +173,7 @@
     var data = {
       labels: ['HTML', 'CSS', 'JavaScript', 'PHP', 'Laravel', 'SQL', 'SHELL', '情報システム基礎知識（その他）'],
       datasets: [{
-        data: [5.9, 11.8, 23.5, 14.7, 8.8, 29.4, 5.9, 0],
+        data: [30, 20, 10, 5, 5, 20, 20, 10],
         backgroundColor: ['	#0042E5', '	#0070BA', '	#02BDDB', '	#04CDFA', '	#B39DED', '	#6C44E6', '	#4609E8', '	#2B01BA'],
         pointStyle: 'circle',
       }]
@@ -209,7 +220,7 @@
     var data = {
       labels: ['ドットインストール', ' N予備校', ' POSSE課題'],
       datasets: [{
-        data: [94.1, 0, 5.9],
+        data: [40, 20, 40],
         backgroundColor: ['#0042E5', '#0070BA', '#02BDDB'],
         pointStyle: 'circle',
         // textAlign: 'left',
@@ -252,4 +263,13 @@
       plugins: [dataLabelPlugin]
     });
   })();
+
+/*********************************************
+      twitter画面を開く
+ *********************************************/
+
+  {
+
+
+  }
 }

@@ -11,8 +11,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" defer></script>
   <script src="js/calendar.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="js/scripts.js" defer></script>
   <title>POSSE</title>
 </head>
@@ -131,7 +133,7 @@
               <div class="twitter">
                 <div class="input_twitter">
                   <p class="twitter">Twitter用コメント</p>
-                  <textarea name="" id="" cols="30" rows="10"></textarea>
+                  <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
                 </div>
                 <div class="twitter_checkbox">
                   <input type="checkbox" name="share" id="share">
@@ -169,7 +171,7 @@
         </div>
         <div class="modal_content modal_calendar">
           <div class="modal_return"></div>
-          <table>
+          <table id="tbl">
             <thead>
               <tr class="calendar_top">
                 <th id="prev">
@@ -189,9 +191,9 @@
                 <th>Fri</th>
                 <th>Sat</th>
               </tr>
-            </tr>
-          </thead>
-          <tbody></tbody>
+              </tr>
+            </thead>
+            <tbody></tbody>
             <!-- <tfoot>
               <tr>
                 <td id="today" colspan="7">Today</td>

@@ -406,6 +406,7 @@
     background: #F5F5F8;
     height: 45px;
     border-radius: 7px;
+    resize: none;
   }
 
   textarea {
@@ -737,3 +738,7 @@
   #title {
     padding-bottom: 30px;
   }
+
+/*************************************
+    レスポンシブ対応
+*************************************/
