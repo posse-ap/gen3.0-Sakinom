@@ -91,9 +91,9 @@
     var gradient = ctx.createLinearGradient(0, 10, 0, 400);
     gradient.addColorStop(0, 'rgb(63,206,254)');
     gradient.addColorStop(0.5, 'rgb(17,116,190)');
-  
+
     var data = {
-  
+
       labels: day,
       datasets: [{
         label: 'study hours',
@@ -102,7 +102,7 @@
         borderWidth: 0
       }]
     };
-  
+
     var options = {
       scales: {
         yAxes: [{
@@ -141,14 +141,14 @@
         display: false
       }
     };
-  
+
     var myChart = new Chart(ctx, {
       type: type,
       data: data,
       options: options
     });
   };
-  
+
   timeBar();
 
 })();
@@ -200,18 +200,28 @@
       const ratio = datas.map(dataset => {
         return Object.values(dataset);
       });
+      const total = ratio[0].reduce(function(sum, element){
+        return sum + element;
+      }, 0);
+
+      
+      // console.log(ratio[0].map(data => {
+      //   return data/total*100;
+      // }))
 
       var type = 'doughnut';
-  
+
       var data = {
         labels: lang[0],
         datasets: [{
-          data: ratio[0],
+          data: ratio[0].map(data => {
+            return Math.round(data/total*100);
+          }),
           backgroundColor: ['	#0042E5', '	#0070BA', '	#02BDDB', '	#04CDFA', '	#B39DED', '	#6C44E6', '	#4609E8', '	#2B01BA'],
           pointStyle: 'circle',
         }]
       };
-  
+
       var options = {
         cutoutPercentage: 40,
         ticks: [{
@@ -234,7 +244,7 @@
         //   }
         // }
       };
-  
+
       var ctx = document.getElementById('pie-charts_lang').getContext('2d');
       var myChart = new Chart(ctx, {
         type: type,
@@ -266,7 +276,7 @@
       });
 
       var type = 'doughnut';
-  
+
       var data = {
         labels: content[0],
         datasets: [{
@@ -276,7 +286,7 @@
           // textAlign: 'left',
         }]
       };
-  
+
       var options = {
         cutoutPercentage: 40,
         ticks: [{
@@ -304,7 +314,7 @@
         //   }
         // }
       };
-  
+
       var ctx = document.getElementById('pie-charts_content').getContext('2d');
       var myChart = new Chart(ctx, {
         type: type,
