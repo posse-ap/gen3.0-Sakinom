@@ -65,6 +65,13 @@
     window.open(turl, '_blank');
   }
 
+  const calendarBtn = document.querySelector('.calendar_btn');
+  calendarBtn.addEventListener('click', () => {
+    const modalCalendar = document.querySelector('.modal_calendar');
+    const modalMain = document.querySelector('.modal_main');
+    modalCalendar.style.display = 'none';
+    modalMain.style.display = 'block';
+  })
 }
 
 /*******************************************************
@@ -200,11 +207,11 @@
       const ratio = datas.map(dataset => {
         return Object.values(dataset);
       });
-      const total = ratio[0].reduce(function(sum, element){
+      const total = ratio[0].reduce(function (sum, element) {
         return sum + element;
       }, 0);
 
-      
+
       // console.log(ratio[0].map(data => {
       //   return data/total*100;
       // }))
@@ -215,7 +222,7 @@
         labels: lang[0],
         datasets: [{
           data: ratio[0].map(data => {
-            return Math.round(data/total*100);
+            return Math.round(data / total * 100);
           }),
           backgroundColor: ['	#0042E5', '	#0070BA', '	#02BDDB', '	#04CDFA', '	#B39DED', '	#6C44E6', '	#4609E8', '	#2B01BA'],
           pointStyle: 'circle',
@@ -224,11 +231,6 @@
 
       var options = {
         cutoutPercentage: 40,
-        ticks: [{
-          callback: function (value, index, values) {
-            return value + '%';
-          }
-        }],
         legend: {
           position: 'bottom',
           // align: 'start',
@@ -291,9 +293,7 @@
         cutoutPercentage: 40,
         ticks: [{
           display: true,
-          callback: function (value, index, values) {
-            return value + '%';
-          }
+
         }],
         legend: {
           position: 'bottom',
@@ -304,15 +304,7 @@
         },
         responsive: true,
         maintainAspectRatio: false,
-        // plugins: {
-        //   datalabels: {
-        //     color: 'white',
-        //     fontSize: 50,
-        //     formatter: function (value, context) {
-        //       return value + '%'; // データラベルに文字などを付け足す
-        //   },
-        //   }
-        // }
+
       };
 
       var ctx = document.getElementById('pie-charts_content').getContext('2d');
@@ -327,13 +319,4 @@
     contentPie();
 
   })();
-
-  /*********************************************
-        twitter画面を開く
-   *********************************************/
-
-  {
-
-
-  }
 }

@@ -38,11 +38,18 @@ console.clear();
         date: i,
         isToday: false,
         isDisabled: false,
+        isPast: true,
       });
     }
 
     if (year === today.getFullYear() && month === today.getMonth()) {
       dates[today.getDate() - 1].isToday = true;
+    }
+
+    for (let i = 0; i < dates.length; i++) {
+      if(year === today.getFullYear() && month === today.getMonth() && dates[i].date > today.getDate() - 1 || month > today.getMonth()) {
+        dates[i].isPast = false;
+      }
     }
 
     return dates;
@@ -105,8 +112,14 @@ console.clear();
           td.classList.add('today');
         }
         if (date.isDisabled) {
-          td.classList.add('disabled')
+          td.classList.add('disabled');
         }
+        if(date.isPast) {
+          td.classList.add('past');
+        }
+        // if(date.date < date.isToday) {
+        //   td.classList.add('past');
+        // }
         tr.appendChild(td);
 
           td.addEventListener('click', () => {
@@ -116,10 +129,6 @@ console.clear();
             console.log(selectedDate)
             const inputDate = document.getElementById('date');
             inputDate.value = selectedDate;
-            const modalCalendar = document.querySelector('.modal_calendar');
-            const modalMain = document.querySelector('.modal_main');
-            modalCalendar.style.display = 'none';
-            modalMain.style.display = 'block';
 
         })
       });
