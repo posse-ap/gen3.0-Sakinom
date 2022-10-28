@@ -202,6 +202,10 @@
     padding: 0px 64px;
   }
 
+  .l-footer .header_btn {
+    display: none;
+  }
+
   .period {
     display: flex;
     justify-content: center;
@@ -742,3 +746,86 @@
 /*************************************
     レスポンシブ対応
 *************************************/
+
+@media (max-width: 810px) {
+  .l-main {
+    margin: 84px 20px 20px 20px;
+  }
+
+  .statistics {
+    display: block;
+    /* margin: 20px 20px 20px 0px; */
+  }
+  
+ .datasets, .pie-charts, #datasets_bar {
+    width: 100%
+  }
+
+  .pie-charts {
+    margin: 16px 20px 20px 0px;
+    gap: 16px;
+  }
+
+  .pie-languages, .pie-contents {
+    width: calc((100% - 16px)/2);
+  }
+
+  .pie-languages {
+    margin: 0;
+  }
+
+  .datasets {
+    margin: 0;
+  }
+
+  /*************
+    ボタンの配置
+  *************/
+
+  .l-header .header_btn {
+    display: none;
+  }
+
+  .l-footer .header_btn {
+    display: block;
+    margin: 20px 0px 20px 0px;
+    width: 100%;
+  }
+
+  .l-footer {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .l-footer .header_btn_container {
+    justify-content: center;
+    display: flex;
+    position: inherit;
+  }
+
+  /****************************************
+      モーダルの中身
+  ****************************************/
+  .modal_content {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    overflow: scroll;
+    padding: 20px;
+    height: 90%;
+    border-radius: 30px 30px 0px 0px;
+  }
+  
+  
+  .inputs {
+    display: block;
+  }
+
+  .input_choices, .input_writings {
+    width: auto;
+  }
+
+  .input_writings {
+    margin-top: 24px;
+  }
+}

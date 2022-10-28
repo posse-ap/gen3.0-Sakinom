@@ -1,17 +1,19 @@
 'use strict';
 
 {
-  const button = document.querySelector('.header_btn');
+  const buttons = document.querySelectorAll('.header_btn');
   // console.log(button);
   const modal = document.querySelector('.modal');
   const modalMain = document.querySelector('.modal_main');
   const modalLoading = document.querySelector('.modal_loading');
 
-  button.addEventListener('click', () => {
-    modal.style.display = 'block';
-    modalLoading.style.display = 'none';
-    complete.style.display = 'none';
-    modalMain.style.display = 'block';
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      modal.style.display = 'block';
+      modalLoading.style.display = 'none';
+      complete.style.display = 'none';
+      modalMain.style.display = 'block';
+    })
   });
 
   const close = document.querySelectorAll('.modal_close');
@@ -34,7 +36,7 @@
     // console.log('hello');
     modalMain.style.display = 'none';
     modalLoading.style.display = 'block';
-    if(document.getElementById('share').checked) {
+    if (document.getElementById('share').checked) {
       openTwitter();
     }
     setTimeout(changeModal, 5000);
@@ -54,12 +56,12 @@
     modalMain.style.display = 'block';
   })
 
-    //openTwitter(投稿文、シェアするURL、ハッシュタグ、提供元アカウント)
-    function openTwitter() {
-      const comment = document.getElementById('comment').value;
-      var turl = "https://twitter.com/intent/tweet?text=" + comment;
-      window.open(turl, '_blank');
-    }
+  //openTwitter(投稿文、シェアするURL、ハッシュタグ、提供元アカウント)
+  function openTwitter() {
+    const comment = document.getElementById('comment').value;
+    const turl = "https://twitter.com/intent/tweet?text=" + comment;
+    window.open(turl, '_blank');
+  }
 
 }
 
@@ -70,67 +72,83 @@
 (function () {
   'use strict';
 
-  var type = 'bar';
-  var ctx = document.getElementById('datasets_bar').getContext('2d');
-  var gradient = ctx.createLinearGradient(0, 10, 0, 400);
-  gradient.addColorStop(0, 'rgb(63,206,254)');
-  gradient.addColorStop(0.5, 'rgb(17,116,190)');
+  const url = 'http://posse-task.anti-pattern.co.jp/1st-work/study_time.json';
 
-  var data = {
+  async function timeBar() {
+    const response = await fetch(url);
+    const datas = await response.json();
+    const day = datas.map(dataset => {
+      return dataset.day;
+    })
+    const time = datas.map(dataset => {
+      return dataset.time;
+    });
 
-    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
-    datasets: [{
-      label: 'study hours',
-      data: [2.3, 4.5, 1.2, 3.7, 3.7, 4, 6, 7.5, 1.5, 4, 2, 5.5, 7, 8, 5.5, 3.7, 4, 0.6, 0.6, 1, 4, 2.3, 5.5, 1.5, 6, 8, 8, 2, 0.6, 3.7, 1.2],
-      backgroundColor: gradient,
-      borderWidth: 0
-    }]
-  };
-
-  var options = {
-    scales: {
-      yAxes: [{
-        ticks: {
-          min: 0,
-          max: 8,
-          stepSize: 2,
-          callback: function (value, index, values) {
-            return value + 'h';
-          }
-        },
-        gridLines: {
-          display: false,
-          drawBorder: false
-        }
-      }],
-      xAxes: [{
-        ticks: {
-          // maxRotation: 0,
-          // minRotation: 0,
-          callback: function (value, index, values) {
-            if (index % 2 === 0) {
-              return "";
-            }
-            return value;
-          }
-        },
-        barThickness: 5,
-        gridLines: {
-          display: false,
-          drawBorder: false
-        },
+    var type = 'bar';
+    var ctx = document.getElementById('datasets_bar').getContext('2d');
+    var gradient = ctx.createLinearGradient(0, 10, 0, 400);
+    gradient.addColorStop(0, 'rgb(63,206,254)');
+    gradient.addColorStop(0.5, 'rgb(17,116,190)');
+  
+    var data = {
+  
+      labels: day,
+      datasets: [{
+        label: 'study hours',
+        data: time,
+        backgroundColor: gradient,
+        borderWidth: 0
       }]
-    },
-    legend: {
-      display: false
-    }
+    };
+  
+    var options = {
+      scales: {
+        yAxes: [{
+          ticks: {
+            min: 0,
+            max: 8,
+            stepSize: 2,
+            callback: function (value, index, values) {
+              return value + 'h';
+            }
+          },
+          gridLines: {
+            display: false,
+            drawBorder: false
+          }
+        }],
+        xAxes: [{
+          ticks: {
+            // maxRotation: 0,
+            // minRotation: 0,
+            callback: function (value, index, values) {
+              if (index % 2 === 0) {
+                return "";
+              }
+              return value;
+            }
+          },
+          barThickness: 5,
+          gridLines: {
+            display: false,
+            drawBorder: false
+          },
+        }]
+      },
+      legend: {
+        display: false
+      }
+    };
+  
+    var myChart = new Chart(ctx, {
+      type: type,
+      data: data,
+      options: options
+    });
   };
+  
+  timeBar();
 
-  var myChart = new Chart(ctx, {
-    type: type,
-    data: data,
-    options: options
-  });
 })();
 
 {
@@ -168,105 +186,139 @@
   (function () {
     'use strict';
 
-    var type = 'doughnut';
+    const url = 'http://posse-task.anti-pattern.co.jp/1st-work/study_language.json';
 
-    var data = {
-      labels: ['HTML', 'CSS', 'JavaScript', 'PHP', 'Laravel', 'SQL', 'SHELL', '情報システム基礎知識（その他）'],
-      datasets: [{
-        data: [30, 20, 10, 5, 5, 20, 20, 10],
-        backgroundColor: ['	#0042E5', '	#0070BA', '	#02BDDB', '	#04CDFA', '	#B39DED', '	#6C44E6', '	#4609E8', '	#2B01BA'],
-        pointStyle: 'circle',
-      }]
+    async function langPie() {
+      const response = await fetch(url);
+      const datas = await response.json();
+      // return lang = Object.keys(datas[0]);
+      const lang = datas.map(dataset => {
+        return Object.keys(dataset);
+      })
+      const ratio = datas.map(dataset => {
+        return Object.values(dataset);
+      });
+      
+      var type = 'doughnut';
+  
+      var data = {
+        labels: lang[0],
+        datasets: [{
+          data: ratio[0],
+          backgroundColor: ['	#0042E5', '	#0070BA', '	#02BDDB', '	#04CDFA', '	#B39DED', '	#6C44E6', '	#4609E8', '	#2B01BA'],
+          pointStyle: 'circle',
+        }]
+      };
+  
+      var options = {
+        cutoutPercentage: 40,
+        ticks: [{
+          callback: function (value, index, values) {
+            return value + '%';
+          }
+        }],
+        legend: {
+          position: 'bottom',
+          // align: 'start',
+          labels: {
+            usePointStyle: true,
+          }
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        // plugins: {
+        //   tooltip: {
+        //     enabled: 'false'
+        //   }
+        // }
+      };
+  
+      var ctx = document.getElementById('pie-charts_lang').getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: type,
+        data: data,
+        options: options,
+        plugins: [dataLabelPlugin]
+      });
     };
 
-    var options = {
-      cutoutPercentage: 40,
-      ticks: [{
-        callback: function (value, index, values) {
-          return value + '%';
-        }
-      }],
-      legend: {
-        position: 'bottom',
-        // align: 'start',
-        labels: {
-          usePointStyle: true,
-        }
-      },
-      responsive: true,
-      maintainAspectRatio: false,
-      // plugins: {
-      //   tooltip: {
-      //     enabled: 'false'
-      //   }
-      // }
-    };
+    langPie();
 
-    var ctx = document.getElementById('pie-charts_lang').getContext('2d');
-    var myChart = new Chart(ctx, {
-      type: type,
-      data: data,
-      options: options,
-      plugins: [dataLabelPlugin]
-    });
   })();
 
 
   (function () {
     'use strict';
 
-    var type = 'doughnut';
+    const url = 'http://posse-task.anti-pattern.co.jp/1st-work/study_contents.json';
 
-    var data = {
-      labels: ['ドットインストール', ' N予備校', ' POSSE課題'],
-      datasets: [{
-        data: [40, 20, 40],
-        backgroundColor: ['#0042E5', '#0070BA', '#02BDDB'],
-        pointStyle: 'circle',
-        // textAlign: 'left',
-      }]
+    async function contentPie() {
+      const response = await fetch(url);
+      const datas = await response.json();
+      // return lang = Object.keys(datas[0]);
+      const content = datas.map(dataset => {
+        return Object.keys(dataset);
+      })
+      const ratio = datas.map(dataset => {
+        return Object.values(dataset);
+      });
+
+      var type = 'doughnut';
+  
+      var data = {
+        labels: content[0],
+        datasets: [{
+          data: ratio[0],
+          backgroundColor: ['#0042E5', '#0070BA', '#02BDDB'],
+          pointStyle: 'circle',
+          // textAlign: 'left',
+        }]
+      };
+  
+      var options = {
+        cutoutPercentage: 40,
+        ticks: [{
+          display: true,
+          callback: function (value, index, values) {
+            return value + '%';
+          }
+        }],
+        legend: {
+          position: 'bottom',
+          // align: 'end',
+          labels: {
+            usePointStyle: true,
+          }
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        // plugins: {
+        //   datalabels: {
+        //     color: 'white',
+        //     fontSize: 50,
+        //     formatter: function (value, context) {
+        //       return value + '%'; // データラベルに文字などを付け足す
+        //   },
+        //   }
+        // }
+      };
+  
+      var ctx = document.getElementById('pie-charts_content').getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: type,
+        data: data,
+        options: options,
+        plugins: [dataLabelPlugin]
+      });
     };
 
-    var options = {
-      cutoutPercentage: 40,
-      ticks: [{
-        display: true,
-        callback: function (value, index, values) {
-          return value + '%';
-        }
-      }],
-      legend: {
-        position: 'bottom',
-        // align: 'end',
-        labels: {
-          usePointStyle: true,
-        }
-      },
-      responsive: true,
-      maintainAspectRatio: false,
-      // plugins: {
-      //   datalabels: {
-      //     color: 'white',
-      //     fontSize: 50,
-      //     formatter: function (value, context) {
-      //       return value + '%'; // データラベルに文字などを付け足す
-      //   },
-      //   }
-      // }
-    };
+    contentPie();
 
-    var ctx = document.getElementById('pie-charts_content').getContext('2d');
-    var myChart = new Chart(ctx, {
-      type: type,
-      data: data,
-      options: options,
-      plugins: [dataLabelPlugin]
-    });
   })();
 
-/*********************************************
-      twitter画面を開く
- *********************************************/
+  /*********************************************
+        twitter画面を開く
+   *********************************************/
 
   {
 
