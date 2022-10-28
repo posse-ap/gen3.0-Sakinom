@@ -12,7 +12,9 @@
       modal.style.display = 'block';
       modalLoading.style.display = 'none';
       complete.style.display = 'none';
+      modalCalendar.style.display = 'none';
       modalMain.style.display = 'block';
+      console.log('button');
     })
   });
 
@@ -33,7 +35,7 @@
   const modalBtn = document.querySelector('.modal_btn');
 
   modalBtn.addEventListener('click', () => {
-    // console.log('hello');
+    console.log('hello');
     modalMain.style.display = 'none';
     modalLoading.style.display = 'block';
     if (document.getElementById('share').checked) {
@@ -198,7 +200,7 @@
       const ratio = datas.map(dataset => {
         return Object.values(dataset);
       });
-      
+
       var type = 'doughnut';
   
       var data = {
