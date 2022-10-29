@@ -50,6 +50,12 @@ console.clear();
       if(year === today.getFullYear() && month === today.getMonth() && dates[i].date > today.getDate() - 1 || month > today.getMonth()) {
         dates[i].isPast = false;
       }
+      if(year > today.getFullYear()) {
+        dates[i].isPast = false;
+      }
+      if(year < today.getFullYear()) {
+        dates[i].isPast = true;
+      }
     }
 
     return dates;
