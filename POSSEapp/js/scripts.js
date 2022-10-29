@@ -41,7 +41,7 @@
     if (document.getElementById('share').checked) {
       openTwitter();
     }
-    setTimeout(changeModal, 5000);
+    setTimeout(changeModal, 3000);
   })
 
   const dateInput = document.getElementById('date');
