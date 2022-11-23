@@ -240,7 +240,7 @@
         },
         responsive: true,
         maintainAspectRatio: false,
-        // plugins: {
+        // plugins:
         //   tooltip: {
         //     enabled: 'false'
         //   }
@@ -293,7 +293,6 @@
         cutoutPercentage: 40,
         ticks: [{
           display: true,
-
         }],
         legend: {
           position: 'bottom',
