@@ -52,6 +52,7 @@
     // await loader();
     modalMain.style.display = 'none';
     modalLoading.style.display = 'block';
+    console.log(document.getElementById('share').checked);
     if (document.getElementById('share').checked) {
       openTwitter();
     }
